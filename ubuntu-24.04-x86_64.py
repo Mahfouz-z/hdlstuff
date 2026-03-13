@@ -67,7 +67,7 @@ def install() -> None:
     InstallFiles(ctx, "prefix/ubuntu", ["bin/activate-hdlstuff.sh"])
 
     ctx.run()
-    ctx.log(f"Please activate the environment using: '. {ctx.prefix("bin/activate-hdlstuff.sh")}'")
+    ctx.log(f"Please activate the environment using: {ctx.prefix('bin/activate-hdlstuff.sh')}")
     ctx.remove_logs()
 
 

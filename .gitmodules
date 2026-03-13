@@ -1,6 +1,7 @@
 [submodule "repos/chext"]
 	path = repos/chext
 	url = https://github.com/hdlstuff/chext.git
+	branch = mahfouz-stable
 [submodule "repos/hdlscw"]
 	path = repos/hdlscw
 	url = https://github.com/hdlstuff/hdlscw.git

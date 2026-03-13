@@ -1,2 +1,2 @@
 # hdlstuff
-hdlstuff single repository.
+hdlstuff single repository with versions corresponding to HardCilk.
