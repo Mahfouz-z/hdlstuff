@@ -1,10 +1,13 @@
 from xinstaller.common import *
 from xinstaller.recipes import *
-
+import install_sv2v
 
 def install() -> None:
-    ctx = Context(prefix=shexpand("$HOME/.local/opt/hdlstuff"))
+    prefix=shexpand("$HOME/.local/opt/hdlstuff")
+    ctx = Context(prefix=prefix)
 
+    install_sv2v(prefix)
+    
     AptInstall(ctx, "utils", ["wget", "curl", "tar", "git"])
     AptInstall(ctx, "cpp-stuff", ["g++", "gcc", "gdb", "ninja-build", "make"])
     AptInstall(ctx, "python3-stuff", ["python3", "python3-pip", "python3-venv", "python3-setuptools"])
