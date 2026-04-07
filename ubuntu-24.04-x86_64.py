@@ -1,6 +1,6 @@
 from xinstaller.common import *
 from xinstaller.recipes import *
-import install_sv2v
+from install_sv2v import install_sv2v
 
 def install() -> None:
     prefix=shexpand("$HOME/.local/opt/hdlstuff")
