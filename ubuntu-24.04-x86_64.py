@@ -1,8 +1,9 @@
 from xinstaller.common import *
 from xinstaller.recipes import *
 from install_sv2v import install_sv2v
+import argparse
 
-def install() -> None:
+def install(keep_logs: bool = False) -> None:
     prefix=shexpand("$HOME/.local/opt/hdlstuff")
     ctx = Context(prefix=prefix)
 
@@ -71,7 +72,20 @@ def install() -> None:
 
     ctx.run()
     ctx.log(f"Please activate the environment using: {ctx.prefix('bin/activate-hdlstuff.sh')}")
-    ctx.remove_logs()
+    # Only remove logs if keep_logs is False
+    if not keep_logs:
+        ctx.remove_logs()
+    else:
+        ctx.log("Note: Installation logs have been preserved.")
 
 
-install()
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="HDL Toolchain Installer")
+    parser.add_argument(
+        "--keep-logs", 
+        action="store_true", 
+        help="Do not delete the installation logs after completion (default: False)"
+    )
+    
+    args = parser.parse_args()
+    install(keep_logs=args.keep_logs)
